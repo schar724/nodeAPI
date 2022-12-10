@@ -3,13 +3,13 @@ const galleryProvider = require('./galleriesProvider.js')
 const paintingsProvider = require('./paintingsProvider.js')
 
 const handleAllPaintings = app => {
-    app.get('/api/paintings', (req, res) => {
+    app.get('/paintings', (req, res) => {
         res.json(paintingsProvider.getData())
     })
 }
 
 const handlePaintingsById = app => {
-    app.get('/api/painting/:id', (req, res) => {
+    app.get('/painting/:id', (req, res) => {
         const id = req.params.id
         const paintingsList =  paintingsProvider.getData()
         const paintingById = paintingsList.filter(painting => painting.paintingID == id)
@@ -23,7 +23,7 @@ const handlePaintingsById = app => {
 }
 
 const handlePaintingsByGalleryId = app => {
-    app.get('/api/painting/gallery/:id', (req, res) => {
+    app.get('/painting/gallery/:id', (req, res) => {
         const id = req.params.id
         const paintingsList =  paintingsProvider.getData()
         const paintingById = paintingsList.filter(painting => painting.gallery.galleryID == id)
@@ -37,7 +37,7 @@ const handlePaintingsByGalleryId = app => {
 }
 
 const handlePaintingsByArtistId = app => {
-    app.get('/api/painting/artist/:id', (req, res) => {
+    app.get('/painting/artist/:id', (req, res) => {
         const id = req.params.id
         const paintingsList =  paintingsProvider.getData()
         const paintingById = paintingsList.filter(painting => painting.artist.artistID == id)
@@ -51,7 +51,7 @@ const handlePaintingsByArtistId = app => {
 }
 
 const handlePaintingsByYear = app => {
-    app.get('/api/painting/year/:min/:max', (req, res) => {
+    app.get('/painting/year/:min/:max', (req, res) => {
         const min = req.params.min
         const max = req.params.max
 
@@ -70,7 +70,7 @@ const handlePaintingsByYear = app => {
 };
 
 const handlePaintingsByTitle = app => {
-    app.get('/api/painting/title/:text', (req, res) => {
+    app.get('/painting/title/:text', (req, res) => {
         const text = req.params.text.toLowerCase()
         const paintingsList =  paintingsProvider.getData()
         const paintingByTitle = paintingsList.filter(painting => painting.title.toLowerCase().includes(text))
@@ -84,7 +84,7 @@ const handlePaintingsByTitle = app => {
 };
 
 const handlePaintingsByColorName = app => {
-    app.get('/api/painting/color/:name', (req, res) => {
+    app.get('/painting/color/:name', (req, res) => {
         const name = req.params.name.toLowerCase()
         const paintingsList =  paintingsProvider.getData()
         const paintingByColor = []
@@ -106,13 +106,13 @@ const handlePaintingsByColorName = app => {
 }; 
 
 const handleAllGalleries = app => {
-    app.get('/api/galleries', (req, res) => {
+    app.get('/galleries', (req, res) => {
         res.json(galleryProvider.getData())
     })
 }
 
 const handleGalleriesByCountry = app => {
-    app.get('/api/galleries/:country', (req, res) => {
+    app.get('/galleries/:country', (req, res) => {
         const country = capitalize(req.params.country)
         const galleryList =  galleryProvider.getData()
         const galleriesByCountry = galleryList.filter(gallery => gallery.GalleryCountry === country)
@@ -126,13 +126,13 @@ const handleGalleriesByCountry = app => {
 }
 
 const handleAllArtists = app => {
-    app.get('/api/artists', (req, res) => {
+    app.get('/artists', (req, res) => {
         res.json(artistsProvider.getData())
     })
 }
 
 const handleArtistByCountry = app => {
-    app.get('/api/artists/:country', (req, res) => {
+    app.get('/artists/:country', (req, res) => {
         const country = capitalize(req.params.country)
         const artistsList =  artistsProvider.getData()
         const artistsByCountry = artistsList.filter(artist => artist.Nationality === country)
