@@ -1,5 +1,4 @@
-# COMP 3612 (Fall 2022)
-## Node.js API
+# Node.js API
 
 A Node.js API containing data regarding artists, paintings and galleries hosted by Glitch.
 
