@@ -1,7 +1,7 @@
 # COMP 3612 (Fall 2022)
-### Assignment #3: Node API
+## Node API
 
-https://nodeapi-scottcharles.glitch.me/paintings
+https://nodeapi-scottcharles.glitch.me/paintings /n
 https://nodeapi-scottcharles.glitch.me/painting/433
 https://nodeapi-scottcharles.glitch.me/painting/43374534856
 https://nodeapi-scottcharles.glitch.me/painting/gallery/7
